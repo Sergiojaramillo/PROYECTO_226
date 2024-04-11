@@ -1,0 +1,22 @@
+.centrar {
+
+    display: flex;
+    justify-content: center;
+}
+
+.bgcolor {
+    background-color: rgba(76, 175, 80, .4);
+}
+.bgcolor2 {
+    background-color: rgba(22, 22, 20, 0.4);
+    
+
+}
+
+
+h5 {
+   color: black;
+}
+body {
+    background-color: rgb(252, 251, 253);
+}
