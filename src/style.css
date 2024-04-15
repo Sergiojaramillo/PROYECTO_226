@@ -20,3 +20,18 @@ h5 {
 body {
     background-color: rgb(252, 251, 253);
 }
+
+.marginB {
+    margin-bottom: 5%;
+}
+
+
+ @media(max-width:2200px) { 
+    .wit {
+        width: 400px;
+    }
+    
+    
+ }
+
+
