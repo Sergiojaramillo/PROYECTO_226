@@ -1,6 +1,11 @@
+
 const min = 15;
 const max = 16;
 const EbNo = [];
+const EbNo2 = [];
+const EbNo3 = [];
+const EbNo4 = [];
+const EbNo5 = [];
 const dates = [];
 
 function Rand(min, max) {
@@ -9,6 +14,12 @@ function Rand(min, max) {
 
 for(let i=0; i <=2000 ; i++ ){
   EbNo[i]= Rand(min, max)
+  EbNo2[i] =Rand(12,14)
+  EbNo3[i] =Rand(10,11)
+  EbNo4[i] =Rand(8,9)
+  EbNo5[i] =Rand(0,0.5)
+  
+
 }
 
 for(let j=0;j<=2000;j++){
@@ -17,79 +28,135 @@ for(let j=0;j<=2000;j++){
 
 
 // GRAFICAS SATELITALES
+
 const ctx = document.getElementById('myChart');
-
-
 
 new Chart(ctx, {
 type: 'line',
 data: {
-  labels: ['04-Abr', '05-Abr', '06-Abr', '07-Abr', '08-Abr', '09-Abr', '10-Abr', '11-Abr', '12-Abr','04-Abr', '05-Abr', '06-Abr', '07-Abr', '08-Abr', '09-Abr', '10-Abr', '11-Abr', '12-Abr'],
+  labels: dates,
   datasets: [
     {
-    label: 'dBm',
-    data: [50.2, 50.3, 51, 53, 55, 52,50.2, 50.3, 51, 53, 55, 52,50.2, 50.3, 51, 53, 55, 52,50.2, 50.3, 51, 53, 55, 52],
+    label: 'Sx (dBm)',
+    data: EbNo,
     borderWidth: 1
     },
     {
-      label: 'dBm',
-      data: [16.1, 16.2, 16.4, 16.5, 18, 14,16.1, 16.2, 16.4, 16.5, 18, 14],
-      borderWidth: 2
-      },
+    label: 'Temp (C)',
+    data: EbNo2,
+    borderWidth: 2
+    },
+    {
+      label: 'Eb/No (dB)',
+      data: EbNo3,
+      borderWidth: 1
+    },
+    {
+      label: 'Tx (dbm)',
+      data: EbNo4,
+      borderWidth: 1
+    },
+    {
+      label: 'BERs',
+      data: EbNo5,
+      borderWidth: 1
+    }
   ]
 },
 options: {
+  plugins: {
+    title: {
+        display: true,
+        text: 'Estación'
+    }
+},
   pointStyle: false,
   scales: {
     y: {
-      beginAtZero: true
+      beginAtZero: true,
+      },
+    x: {
+     ticks: {
+        maxTicksLimit:8
+     }
+    }
+   },
+  }
+});
+
+
+const ctx2 = document.getElementById("myChart2").getContext("2d");
+
+new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [
+      {
+      label: 'Sx (dBm)',
+      data: EbNo,
+      borderWidth: 1
+      },
+      {
+      label: 'Temp (C)',
+      data: EbNo2,
+      borderWidth: 2
+      },
+      {
+        label: 'Eb/No (dB)',
+        data: EbNo3,
+        borderWidth: 1
+      },
+      {
+        label: 'BERs',
+        data: EbNo5,
+        borderWidth: 1
+      }
+      
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+          display: true,
+          text: 'Local'
+      }
+  },
+    pointStyle: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        },
+      x: {
+       ticks: {
+          maxTicksLimit:8
+       }
+      }
+     },
+    }
+  });
+
+const ctx3 = document.getElementById("myChart3")
+const config = {
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }]
+  },
+  options: {
+    scales: {
+      x:{
+        ticks: {
+          maxTicksLimit:8
+        }
+      }
     }
   }
-}
-});
-
-
-const Grafica1 = document.getElementById("myChart2").getContext("2d");
-
-
-  // Creando datos para la grafica ["Abr 10", "Abr 10","Abr 10","Abr 10","Abr 10","Abr 10" ]
-const datos = {
-  labels: dates,
-  datasets:[{
-    label: "temperatura",
-      data: EbNo,
-  }]
 };
-
-
-
-//CreaDO  opciones de grafica
-
-const ChartOpt = { 
-  
-  scales: {
-    y: {
-      beginAtZero: true
-    },
-    x: {
-     
-    }
-  },
-  fill: false,
-  borderWidth: 1,
-  pointStyle: false,
-  tension: 0,
-  showScale: false
-  
-  
-}
-
-new Chart(Grafica1,{
-  type: "line",
-  data: datos,
-  options: ChartOpt
-});
-
-// Creando funcion para la grafica 
-  
-
+const Grafica3 = new Chart(ctx3, config)
