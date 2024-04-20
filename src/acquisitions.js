@@ -68,6 +68,17 @@ options: {
     title: {
         display: true,
         text: 'Estación'
+    },
+    zoom: {
+      zoom: {
+        wheel: {
+          enabled: true
+        },
+        pinch: {
+          enabled: true
+        },
+        mode: 'xy',
+      }
     }
 },
   pointStyle: false,
@@ -77,7 +88,7 @@ options: {
       },
     x: {
      ticks: {
-        maxTicksLimit:8
+        maxTicksLimit:6
      }
     }
    },
@@ -129,7 +140,7 @@ new Chart(ctx2, {
         },
       x: {
        ticks: {
-          maxTicksLimit:8
+          maxTicksLimit:6
        }
       }
      },
@@ -137,26 +148,169 @@ new Chart(ctx2, {
   });
 
 const ctx3 = document.getElementById("myChart3")
-const config = {
+new Chart(ctx3, {
   type: 'line',
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [65, 59, 80, 81, 56, 55, 40],
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-    }]
+    labels: dates,
+    datasets: [
+      {
+      label: 'Estación ',
+      data: EbNo,
+      borderWidth: 1
+      },
+      {
+      label: 'Digital ',
+      data: EbNo2,
+      borderWidth: 2
+      },
+      {
+        label: 'Local ',
+        data: EbNo5,
+        borderWidth: 1
+      }
+      
+    ]
   },
   options: {
-    scales: {
-      x:{
-        ticks: {
-          maxTicksLimit:8
-        }
+    plugins: {
+      title: {
+          display: true,
+          text: 'RTT (ms)'
       }
+  },
+    pointStyle: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        },
+      x: {
+       ticks: {
+          maxTicksLimit:6
+       }
+      }
+     },
     }
-  }
-};
-const Grafica3 = new Chart(ctx3, config)
+  });
+
+const ctx4 = document.getElementById("myChart4")
+new Chart(ctx4, {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [
+      {
+      label: 'Estación',
+      data: EbNo,
+      borderWidth: 1
+      },
+      {
+      label: 'Local',
+      data: EbNo2,
+      borderWidth: 2
+      }
+      
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+          display: true,
+          text: 'df'
+      }
+  },
+    pointStyle: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        },
+      x: {
+       ticks: {
+          maxTicksLimit:6
+       }
+      }
+     },
+    }
+  });
+
+
+
+const ctx5 = document.getElementById("myChart5")
+new Chart(ctx5, {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [
+      {
+      label: 'BUC',
+      data: EbNo,
+      borderWidth: 1
+      },
+      {
+      label: 'LNB',
+      data: EbNo2,
+      borderWidth: 2
+      }
+      
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+          display: true,
+          text: 'Voltaje'
+      }
+  },
+    pointStyle: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        },
+      x: {
+       ticks: {
+          maxTicksLimit:6
+       }
+      }
+     },
+    }
+  });
+
+const ctx6 = document.getElementById("myChart6")
+new Chart(ctx6, {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [
+      {
+      label: 'BUC',
+      data: EbNo,
+      borderWidth: 1
+      },
+      {
+      label: 'LNB',
+      data: EbNo2,
+      borderWidth: 2
+      }
+      
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+          display: true,
+          text: 'Corriente'
+      }
+  },
+    pointStyle: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        },
+      x: {
+       ticks: {
+          maxTicksLimit:6
+       }
+      }
+     },
+    }
+  });
+  // Chart.register(zoomPlugin);
