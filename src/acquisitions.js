@@ -64,6 +64,9 @@ data: {
   ]
 },
 options: {
+  // responsive: false,
+  maintainAspectRatio: true,
+  // aspectRatio: 2,
   plugins: {
     title: {
         display: true,
@@ -127,10 +130,21 @@ new Chart(ctx2, {
     ]
   },
   options: {
+    aspectRatio:2,
     plugins: {
       title: {
           display: true,
           text: 'Local'
+      },zoom: {
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
       }
   },
     pointStyle: false,
@@ -176,6 +190,17 @@ new Chart(ctx3, {
       title: {
           display: true,
           text: 'RTT (ms)'
+      },
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
       }
   },
     pointStyle: false,
@@ -216,6 +241,17 @@ new Chart(ctx4, {
       title: {
           display: true,
           text: 'df'
+      },
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
       }
   },
     pointStyle: false,
@@ -258,6 +294,17 @@ new Chart(ctx5, {
       title: {
           display: true,
           text: 'Voltaje'
+      },
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
       }
   },
     pointStyle: false,
@@ -298,6 +345,17 @@ new Chart(ctx6, {
       title: {
           display: true,
           text: 'Corriente'
+      },
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
       }
   },
     pointStyle: false,

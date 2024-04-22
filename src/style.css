@@ -29,7 +29,12 @@ body {
  @media(max-width:2200px) { 
     .wit {
         width: 400px;
-    }
-    
-    
+    }  
  }
+
+ /* @media(min-width:300px) {
+    .wit2 {
+    height: 5000px;
+    width: 900px;
+    }
+ } */
