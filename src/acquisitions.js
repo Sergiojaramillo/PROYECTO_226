@@ -371,4 +371,7 @@ new Chart(ctx6, {
      },
     }
   });
-  // Chart.register(zoomPlugin);
+
+  
+
+ 
