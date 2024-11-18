@@ -7,6 +7,8 @@ const EbNo4 = [];
 const EbNo5 = [];
 const dates = [];
 
+
+
 function Rand(min, max) {
   return Math.random() * (max -min) + min;
 }
@@ -25,61 +27,29 @@ for(let j=0;j<=2000;j++){
   dates[j] = "April 15 2024 20:25";
 } 
 
+
+
 const ctx7 = document.getElementById("myChart7")
-  new Chart(ctx7, {
-    type: 'line',
-    data: {
-      labels: dates,
-      datasets: [
-        {
-        label: 'Sx dBm',
-        data: EbNo,
-        borderWidth: 1
-        }
-        
-      ]
-    },
-    options: {
-      plugins: {
-        title: {
-            display: true,
-            text: 'Sx strength (dBm)'
-        },
-        zoom: {
-          zoom: {
-            wheel: {
-              enabled: true
-            },
-            pinch: {
-              enabled: true
-            },
-            mode: 'xy',
-          }
-        }
-    },
-      pointStyle: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          },
-        x: {
-         ticks: {
-            maxTicksLimit:6
-         }
-        }
-       },
-      }
-    });
-
 const ctx8 = document.getElementById("myChart8")
-  new Chart(ctx8, {
+const ctx9 = document.getElementById("myChart9")
+const ctx10 = document.getElementById("myChart10")
+
+
+const xlabel = ['Sx dBm','V', 'C°', 'S'];
+const titulo = ['Sx strength','Voltaje', 'Temeratura', 'Latencia'];
+
+
+
+function graficar(ctX, dates_, EbNo_,xlabel_,titulo_) {
+
+  new Chart(ctX, {
     type: 'line',
     data: {
-      labels: dates,
+      labels: dates_,
       datasets: [
         {
-        label: 'V',
-        data: EbNo,
+        label: xlabel_,
+        data: EbNo_,
         borderWidth: 1
         }
         
@@ -89,7 +59,7 @@ const ctx8 = document.getElementById("myChart8")
       plugins: {
         title: {
             display: true,
-            text: 'Voltaje'
+            text: titulo_
         },
         zoom: {
           zoom: {
@@ -109,102 +79,17 @@ const ctx8 = document.getElementById("myChart8")
           beginAtZero: true,
           },
         x: {
-         ticks: {
+        ticks: {
             maxTicksLimit:6
-         }
         }
-       },
+        }
+      },
       }
     });
+}
+graficar(ctx7,dates,EbNo2,xlabel[0],titulo[0]);
+graficar(ctx8,dates,EbNo3,xlabel[1],titulo[1]);
+graficar(ctx9,dates,EbNo4,xlabel[2],titulo[2]);
+graficar(ctx10,dates,EbNo4,xlabel[3],titulo[3]);
 
-    const ctx9 = document.getElementById("myChart9")
-  new Chart(ctx9, {
-    type: 'line',
-    data: {
-      labels: dates,
-      datasets: [
-        {
-        label: 'C°',
-        data: EbNo,
-        borderWidth: 1
-        }
-        
-      ]
-    },
-    options: {
-      plugins: {
-        title: {
-            display: true,
-            text: 'Temperatura C°'
-        },
-        zoom: {
-          zoom: {
-            wheel: {
-              enabled: true
-            },
-            pinch: {
-              enabled: true
-            },
-            mode: 'xy',
-          }
-        }
-    },
-      pointStyle: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          },
-        x: {
-         ticks: {
-            maxTicksLimit:6
-         }
-        }
-       },
-      }
-    });
 
-    const ctx10 = document.getElementById("myChart10")
-    new Chart(ctx10, {
-      type: 'line',
-      data: {
-        labels: dates,
-        datasets: [
-          {
-          label: 'S',
-          data: EbNo,
-          borderWidth: 1
-          }
-          
-        ]
-      },
-      options: {
-        plugins: {
-          title: {
-              display: true,
-              text: 'Latency'
-          },
-          zoom: {
-            zoom: {
-              wheel: {
-                enabled: true
-              },
-              pinch: {
-                enabled: true
-              },
-              mode: 'xy',
-            }
-          }
-      },
-        pointStyle: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            },
-          x: {
-           ticks: {
-              maxTicksLimit:6
-           }
-          }
-         },
-        }
-      });
